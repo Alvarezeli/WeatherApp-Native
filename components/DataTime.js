@@ -6,12 +6,6 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 const DataTime = () => {
   return (
     <View>
-     <View>
-
-     </View>
-     <View>
-
-     </View>
     </View>
   );
 };
