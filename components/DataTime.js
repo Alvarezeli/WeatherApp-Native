@@ -10,7 +10,7 @@ const DataTime = () => {
 
      </View>
      <View>
-         
+
      </View>
     </View>
   );
