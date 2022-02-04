@@ -45,7 +45,7 @@ const CurrentTemp = ({ data }) => {
 
 const styles = StyleSheet.create({
   scroll: {
-    flex: 0.4,
+    flex: 0.5,
     backgroundColor: "#18181bcc",
     padding: wp("3%"),
   },
