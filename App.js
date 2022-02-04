@@ -18,8 +18,13 @@ import WheatherScroll from "./components/WheatherScroll";
 const API_KEY = '773d7b318020f69f1015e27434c7cc58'
 
 export default function App() {
+  //Guarda info futura y por hora
   const [data, setData] = useState({});
 
+  //Guarda info actual
+  const [current, setCurrent] = useState({});
+  //console.log('soy lo que esta en el estado', current)
+  
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -29,11 +34,20 @@ export default function App() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      fetchDataFromApi(location.coords.latitude, location.coords.longitude);
+      //console.log(location)
+
+      const latitude = location.coords.latitude
+      const longitude =  location.coords.longitude
+
+      //obtiene datos futuros y el minuto a minuto
+      fetchDataFromApi(latitude, longitude);
+      //obtiene datos presentes
+      getDataApiCurrent(latitude, longitude)
     })();
   }, [])
 
-
+  //ONE CALL 
+  //get current, forecast and historical weather data: Minute forecast for 1 hour, Hourly forecast for 48 hours, Daily forecast for 7 days
   const fetchDataFromApi = (latitude, longitude) => {
     if(latitude && longitude) {
       fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`)
@@ -44,8 +58,24 @@ export default function App() {
       })
     }
     
-  }
+  };
 
+  //Current Weather Data
+  //Access current weather data for any location including over 200,000 cities
+  const getDataApiCurrent = (latitude, longitude) => {
+    if(latitude && longitude){
+      try {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`)
+        .then(res => res.json())
+        .then(data => {
+        setCurrent(data)
+       // console.log('info actual api', data)
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
   
   return (
     <View style={{ flex: 1 }}>
@@ -56,7 +86,7 @@ export default function App() {
         style={styles.img}
       >
         <DataTime current={data.current} lat={data.lat} lon={data.lon} timezone={data.timezone}/>
-        <WheatherScroll />
+        <WheatherScroll weatherData={data.daily}/>
       </ImageBackground>
     </View>
   );
