@@ -13,8 +13,9 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import DataTime from "./components/DataTime";
 import WheatherScroll from "./components/WheatherScroll";
+import CurrentTemp from "./components/CurrentTemp";
+import DataTime from "./components/DataTime";
 
 const API_KEY = "773d7b318020f69f1015e27434c7cc58";
 
@@ -68,12 +69,12 @@ export default function App() {
     if (latitude && longitude) {
       try {
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=es&appid=${API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=es&units=metric&appid=${API_KEY}`
         )
           .then((res) => res.json())
           .then((data) => {
             setCurrent(data);
-            // console.log('info actual api', data)
+            //console.log('info actual api', data)
           });
       } catch (error) {
         console.log(error);
@@ -81,23 +82,25 @@ export default function App() {
     }
   };
 
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <DataTime
-        current={data.current}
+        current={current}
         lat={data.lat}
         lon={data.lon}
         timezone={data.timezone}
         name={current.name}
       />
-      <WheatherScroll weatherData={data.daily} />    
+      {/* <CurrentTemp current={current} /> */}
+      <WheatherScroll weatherData={data.daily} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
- container: { 
-   flex: 1,
-   },
+  container: {
+    flex: 1,
+  },
 });
