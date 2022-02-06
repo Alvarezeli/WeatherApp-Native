@@ -5,6 +5,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+// import icon_01d from "../assets/iconosdelclima/01d.png";
+// import icon_10d from "../assets/iconosdelclima/10d.png";
+// import icon_02d from "../assets/iconosdelclima/02d.png";
+import WeatherIcon from "./WeatherIcon";
 
 const FuturesForecast = ({ data }) => {
   return (
@@ -24,19 +28,15 @@ const FuturesForecast = ({ data }) => {
 };
 
 const FutureForecastItem = ({ forecastItem }) => {
-  const img = {
-    uri:
-      "http://openweathermap.org/img/wn/" +
-      forecastItem.weather[0].icon +
-      "@2x.png",
-  };
+
   return (
     <View style={styles.currentContainer}>
-      <Text style={{ color: "white" }}>
+      <Text style={{ color: '#2C394B',  textTransform:'uppercase'}}>
         {moment(forecastItem.dt * 1000).format("dddd")}
       </Text>
-      <Image source={img} style={{ width: wp("20%"), height: hp("10%") }} />
-      <Text style={{ color: "white" }}>
+      <WeatherIcon icon={forecastItem.weather[0].icon} />
+      <Text style={{color: '#2C394B', textTransform: 'capitalize'}}>{forecastItem.weather[0].description}</Text>
+      <Text style={{ color: '#2C394B' }}>
         {Math.round(forecastItem.temp.max)}° | {Math.round(forecastItem.temp.min)}°
       </Text>
     </View>
@@ -47,18 +47,20 @@ export default FuturesForecast;
 
 const styles = StyleSheet.create({
   currentContainer: {
+    backgroundColor: '#F6F6F6',
     flex: 1,
-    backgroundColor: "#00000019",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 10,
-    borderColor: "#eee",
-    borderWidth: 1,
+    borderRadius: wp('3%'),
+    borderColor:  '#EDEDED',
+    borderWidth: wp('0.5%'),
     padding: wp("2%"),
-    marginLeft: wp("4%"),
+    marginLeft: wp("2%"),
   },
   containerActivity: {
     justifyContent: "center",
     alignItems: "center",
+    marginTop: wp('20%'),
+    flex: 1
   },
 });

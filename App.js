@@ -53,7 +53,7 @@ export default function App() {
   const fetchDataFromApi = (latitude, longitude) => {
     if (latitude && longitude) {
       fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&lang=es&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely&lang=es&units=metric&appid=${API_KEY}`
       )
         .then((res) => res.json())
         .then((data) => {
