@@ -82,17 +82,10 @@ export default function App() {
     }
   };
 
-
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <DataTime
-        current={current}
-        lat={data.lat}
-        lon={data.lon}
-        timezone={data.timezone}
-        name={current.name}
-      />
+      <DataTime current={current} />
       {/* <CurrentTemp current={current} /> */}
       <WheatherScroll weatherData={data.daily} />
     </View>

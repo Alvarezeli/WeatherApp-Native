@@ -10,7 +10,7 @@ import {
 
 const WheatherScroll = ({ weatherData }) => {
   return (
-    <View style={{ height: hp("25%"), marginTop: wp("50%") }}>
+    <View style={{ height: hp("21.5%")}}>
       <ScrollView horizontal={true} style={styles.scroll}>
         <FuturesForecast
           data={weatherData && weatherData.length > 0 ? weatherData : {}}
@@ -24,16 +24,6 @@ const WheatherScroll = ({ weatherData }) => {
 
 const styles = StyleSheet.create({
   scroll: {
-    //backgroundColor: "#18181bcc",
-    padding: wp("3%"),
-  },
-  currentContainer: {
-    backgroundColor: "#00000033",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    borderColor: "#eee",
-    borderWidth: 1,
     padding: wp("3%"),
   },
 });

@@ -165,5 +165,5 @@ function WeatherIcon({ icon }) {
 export default WeatherIcon;
 
 const styles = StyleSheet.create({
-  img:  { width: wp("14%"), height: hp("7%")}
+  img:  { width: wp("12%"), height: hp("6%")}
 });

@@ -13,19 +13,25 @@ const DataTime = ({ current }) => {
     return (
       <View style={styles.container}>
         <View style={styles.containerName}>
+          <Icon name="location-sharp" size={28} />
           <Text style={styles.textName}>{current.name}</Text>
+        </View>
+        <View style={styles.viewImgTemp}>
           <View style={styles.viewImg}>
             <WeatherIcon2 icon={current.weather[0].icon} />
-            <View style={{ flexDirection: "column", paddingLeft: wp("7%") }}>
-              <Text style={styles.textTempCurr}>
-                {Math.round(current.main.temp)}°
-              </Text>
-              <Text style={styles.textActual}>
-                Sensación térmica de {Math.round(current.main.feels_like)}°
-              </Text>
-            </View>
+          </View>
+          <View style={{ flexDirection: "column", paddingLeft: wp("7%") }}>
+            <Text style={styles.textTempCurr}>
+              {Math.round(current.main.temp)}°
+            </Text>
+            <Text style={styles.textActual}>
+              Sensación térmica de {Math.round(current.main.feels_like)}°
+            </Text>
           </View>
         </View>
+        {/* <Text style={styles.textDescription}>
+          {current.weather[0].description}
+        </Text> */}
       </View>
     );
   } else {
@@ -45,25 +51,40 @@ const styles = StyleSheet.create({
     padding: wp("2%"),
   },
   containerName: {
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     alignContent: "center",
-    marginTop: wp("15%"),
+    marginTop: wp("17%"),
   },
-  viewImg: {
+  textDescription: {
+    textAlign: "center",
+    textTransform: "capitalize",
+    marginTop: wp("3%"),
+    fontSize: hp('3%')
+  },
+  viewImgTemp: {
     flexDirection: "row",
     alignContent: "center",
     alignItems: "center",
-    padding: wp("8%"),
     justifyContent: "center",
+    marginTop: wp("5%"),
+  },
+  viewImg: {
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: wp("3%"),
   },
   textName: {
     fontSize: hp("3.3%"),
     color: "black",
     fontWeight: "bold",
+    marginLeft: wp("2%"),
   },
   textActual: {
-    fontSize: hp('2%')
+    fontSize: hp("2%"),
+    marginTop: wp("-2%"),
   },
   textTempCurr: {
     fontSize: hp("11%"),
