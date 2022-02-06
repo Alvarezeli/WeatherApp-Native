@@ -22,6 +22,7 @@ const API_KEY = "773d7b318020f69f1015e27434c7cc58";
 export default function App() {
   //Guarda info futura y por hora
   const [data, setData] = useState({});
+  //console.log('soy estado data', data)
 
   //Guarda info actual
   const [current, setCurrent] = useState({});
@@ -86,7 +87,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <DataTime current={current} />
-      {/* <CurrentTemp current={current} /> */}
+      <CurrentTemp current={data} />
       <WheatherScroll weatherData={data.daily} />
     </View>
   );

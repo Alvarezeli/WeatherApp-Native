@@ -20,35 +20,42 @@ const WeatherItem = ({ title, value, unit }) => {
     );
   };
 
-
-  const CurrentTemp = ({ data }) => {
-    if (data && data.weather) {
-      const img = {
-        uri:
-          "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png",
-      };
-      return (
-        <View style={styles.currentContainer}>
-          <Text
-            style={{ fontSize: hp("3%"), color: "white", fontWeight: "bold" }}
-          >
-            {moment(data.dt * 1000).format("dddd")}
-          </Text>
-          <Image source={img} style={{ width: wp("20%"), height: hp("10%") }} />
-          <View>
-            <Text style={{ color: "white" }}>Night - {data.temp.night}%</Text>
-            <Text style={{ color: "white" }}>Day - {data.temp.day}%</Text>
-          </View>
-        </View>
-      );
-    } else {
-      return(
-        <View style={styles.containerActivity}>
-        <ActivityIndicator size="large"  color="#00ff00" />
-      </View>
-      )
-    }
-  };
+  const CurrentTemp = ({current}) => {
+    return(
+      <View>
+      <Text>Y ahora?</Text>
+    </View>
+    )
+   
+  }
+  // const CurrentTemp = ({ data }) => {
+  //   if (data && data.weather) {
+  //     const img = {
+  //       uri:
+  //         "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png",
+  //     };
+  //     return (
+  //       <View style={styles.currentContainer}>
+  //         <Text
+  //           style={{ fontSize: hp("3%"), color: "white", fontWeight: "bold" }}
+  //         >
+  //           {moment(data.dt * 1000).format("dddd")}
+  //         </Text>
+  //         <Image source={img} style={{ width: wp("20%"), height: hp("10%") }} />
+  //         <View>
+  //           <Text style={{ color: "white" }}>Night - {data.temp.night}%</Text>
+  //           <Text style={{ color: "white" }}>Day - {data.temp.day}%</Text>
+  //         </View>
+  //       </View>
+  //     );
+  //   } else {
+  //     return(
+  //       <View style={styles.containerActivity}>
+  //       <ActivityIndicator size="large"  color="#00ff00" />
+  //     </View>
+  //     )
+  //   }
+  // };
 
 export default CurrentTemp;
 

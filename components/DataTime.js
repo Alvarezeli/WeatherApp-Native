@@ -29,9 +29,6 @@ const DataTime = ({ current }) => {
             </Text>
           </View>
         </View>
-        {/* <Text style={styles.textDescription}>
-          {current.weather[0].description}
-        </Text> */}
       </View>
     );
   } else {

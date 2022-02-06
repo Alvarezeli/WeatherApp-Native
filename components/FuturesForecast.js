@@ -51,7 +51,7 @@ export default FuturesForecast;
 
 const styles = StyleSheet.create({
   currentContainer: {
-    backgroundColor: "#F6F6F6",
+   backgroundColor: "#F7F7F7",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginLeft: wp("2%"),
     width: wp('28%'),
     height: hp('18%'),
-    shadowOpacity: 3,
+   shadowOpacity: 3,
     elevation: 2,
   },
   containerActivity: {
