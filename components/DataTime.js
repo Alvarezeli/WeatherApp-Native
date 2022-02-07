@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
+  widthPercentageToDP,
 } from "react-native-responsive-screen";
-import WeatherIcon from "./WeatherIcon";
 import Icon from "react-native-vector-icons/Ionicons";
 import WeatherIcon2 from "./WeatherIcon2";
 
 const DataTime = ({ current }) => {
-  if (current.weather !== undefined) {
+  if (current && current.weather && current.main) {
     return (
       <View style={styles.container}>
         <View style={styles.containerName}>
@@ -24,8 +24,7 @@ const DataTime = ({ current }) => {
             <Text style={styles.textTempCurr}>
               {Math.round(current.main.temp)}°
             </Text>
-            <Text style={styles.textActual}>
-              Sensación térmica de {Math.round(current.main.feels_like)}°
+            <Text style={styles.textDescription}> {current.weather[0].description}
             </Text>
           </View>
         </View>
@@ -55,10 +54,8 @@ const styles = StyleSheet.create({
     marginTop: wp("17%"),
   },
   textDescription: {
-    textAlign: "center",
     textTransform: "capitalize",
-    marginTop: wp("3%"),
-    fontSize: hp('3%')
+    fontSize: hp('2.25%')
   },
   viewImgTemp: {
     flexDirection: "row",
@@ -86,9 +83,10 @@ const styles = StyleSheet.create({
   textTempCurr: {
     fontSize: hp("11%"),
     fontWeight: "bold",
+    marginBottom: wp('-4%'),
   },
   textFells: {
-    fontSize: hp("2.75%"),
+    fontSize: hp("2.60%"),
     textAlign: "center",
   },
 });

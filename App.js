@@ -8,6 +8,7 @@ import {
   ImageBackground,
   useWindowDimensions,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -16,6 +17,7 @@ import {
 import WheatherScroll from "./components/WheatherScroll";
 import CurrentTemp from "./components/CurrentTemp";
 import DataTime from "./components/DataTime";
+import Intento from "./components/Intento";
 
 const API_KEY = "773d7b318020f69f1015e27434c7cc58";
 
@@ -86,9 +88,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <DataTime current={current} />
+      {/* <DataTime current={current} />
       <CurrentTemp current={data} />
-      <WheatherScroll weatherData={data.daily} />
+      <WheatherScroll weatherData={data.daily} /> */}
+      <Intento actual={current} current={data} weatherData={data.daily} />
     </View>
   );
 }
