@@ -9,6 +9,7 @@ import {
 import WeatherIcon from "./WeatherIcon";
 
 const FuturesForecast = ({ data }) => {
+  //console.log('data en futures', data)
   return (
     <View style={{ flexDirection: "row", marginRight: wp("10%") }}>
       {data && data.length > 0 ? (
@@ -26,6 +27,7 @@ const FuturesForecast = ({ data }) => {
 };
 
 const FutureForecastItem = ({ forecastItem }) => {
+  //console.log(forecastItem)
   return (
     <View style={styles.currentContainer}>
       <Text style={styles.textDay}>
@@ -39,9 +41,9 @@ const FutureForecastItem = ({ forecastItem }) => {
       </Text>
       <View style={styles.viewTemp}>
         <Text style={{ color: "#2C394B", fontWeight: 'bold', fontSize: hp('2%') }}>
-          {Math.round(forecastItem.temp.max)}° |
+          {Math.ceil(forecastItem.temp.max)}° |
         </Text>
-        <Text style={{ color: "#2C394B" }}> {Math.round(forecastItem.temp.min)}°</Text>
+        <Text style={{ color: "#2C394B" }}> {Math.ceil(forecastItem.temp.min)}°</Text>
       </View>
     </View>
   );

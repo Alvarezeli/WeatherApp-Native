@@ -24,7 +24,7 @@ const WeatherItem = ({ title, value, unit}) => {
 const CurrentTemp = ({ current }) => {
   if (current && current.current && current.daily) {
     return (
-      <View style={{ flex: 0.80, padding: wp('3%')}}>
+      <View style={{ flex: 1, padding: wp('3%')}}>
         <Text style={styles.detalle}>Detalles</Text>
         <View style={{flexDirection: 'row'}}>
         <WeatherItem title='Feels like' value={Math.round(current.current.feels_like)} unit='°'/>     
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     marginTop: wp("25%"),
   },
   detalle:{
-    paddingLeft: wp('1%'),
+    marginTop: wp('5%'),
+    //paddingLeft: wp('1%'),
     marginBottom: wp('1%'),
     //textTransform: 'uppercase',
     fontWeight: 'bold',

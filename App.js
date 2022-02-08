@@ -19,6 +19,7 @@ import CurrentTemp from "./components/CurrentTemp";
 import DataTime from "./components/DataTime";
 import Intento from "./components/Intento";
 
+
 const API_KEY = "773d7b318020f69f1015e27434c7cc58";
 
 export default function App() {
@@ -88,7 +89,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Intento actual={current} current={data} weatherData={data.daily} details={data.daily}/>
+      <Intento actual={current} current={data} weatherData={data.daily} hourly={data.hourly}/>
     </View>
   );
 }

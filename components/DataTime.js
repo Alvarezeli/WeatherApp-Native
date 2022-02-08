@@ -22,7 +22,7 @@ const DataTime = ({ current }) => {
           </View>
           <View style={{ flexDirection: "column", paddingLeft: wp("7%") }}>
             <Text style={styles.textTempCurr}>
-              {Math.round(current.main.temp)}°
+              {Math.ceil(current.main.temp)}°
             </Text>
             <Text style={styles.textDescription}> {current.weather[0].description}
             </Text>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignContent: "center",
-    marginTop: wp("17%"),
+    marginTop: wp("10%"),
   },
   textDescription: {
     textTransform: "capitalize",
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: wp("5%"),
+    marginTop: wp("2%"),
   },
   viewImg: {
     alignContent: "center",
