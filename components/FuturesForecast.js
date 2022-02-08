@@ -51,7 +51,7 @@ export default FuturesForecast;
 
 const styles = StyleSheet.create({
   currentContainer: {
-   backgroundColor: "#F7F7F7",
+   backgroundColor: 'white',//"#F7F7F7",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

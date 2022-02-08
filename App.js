@@ -88,10 +88,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <DataTime current={current} />
-      <CurrentTemp current={data} />
-      <WheatherScroll weatherData={data.daily} /> */}
-      <Intento actual={current} current={data} weatherData={data.daily} />
+      <Intento actual={current} current={data} weatherData={data.daily} details={data.daily}/>
     </View>
   );
 }
