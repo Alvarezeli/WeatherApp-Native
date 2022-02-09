@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignContent: "center",
-    marginTop: wp("10%"),
+    marginTop: wp("13%"),
   },
   textDescription: {
     textTransform: "capitalize",

@@ -12,12 +12,13 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import WeatherIcon from "./WeatherIcon";
+
 //ScrollHorizontal
 const HourlyScroll = ({ hourly, details }) => {
   // console.log('soy hourly en hourlyScroll', hourly)
   // console.log('info en details', details)
   return (
-    <View style={{height: hp("23.5%")}} >
+    <View style={{height: hp("23.5%"), flex: 1}} >
        <Text style={styles.hoy}>
           Hoy,{" "}
           {moment(details[0].dt * 1000)
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   hour:{
     fontWeight: 'bold',
     fontSize: hp('1.6%'),
-    marginBottom: wp('1%'),
+    marginBottom: wp('2%'),
    color: 'black'
   },
   hoy: {
@@ -95,13 +96,13 @@ const styles = StyleSheet.create({
      padding: wp("1%"),
      marginLeft: wp("2%"),
      width: wp('21%'),
-     height: hp('16%'),
+     height: hp('15%'),
     shadowOpacity: 3,
      elevation: 2,
    },
    temp:{
     fontWeight: 'bold',
     fontSize: hp('2.2%'),
-    marginTop: wp('1%')
+    marginTop: wp('2%')
    }
 });

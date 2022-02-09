@@ -20,7 +20,7 @@ import {
 const Intento = ({ current, actual, weatherData, hourly}) => {
   if (current && actual && weatherData && hourly) {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1}}>
         <DataTime current={actual} />
         <CurrentTemp current={current} />
         <HourlyScroll hourly={hourly} details={weatherData}/>

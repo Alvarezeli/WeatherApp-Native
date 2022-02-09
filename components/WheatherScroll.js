@@ -10,8 +10,10 @@ import {
 
 const WheatherScroll = ({ weatherData }) => {
   return (
-    <View style={{ height: hp("21.5%")}}>
-      <ScrollView horizontal={true} style={styles.scroll}>
+    <View style={{marginTop: wp('-5%'), flex: 1, paddingBottom: wp('3%')}}>
+      <Text style={styles.hoy}>Pronóstico días siguientes</Text>
+      <ScrollView style={styles.scroll}
+      showsVerticalScrollIndicator={false}>
         <FuturesForecast
           data={weatherData && weatherData.length > 0 ? weatherData : {}}
         />
@@ -24,7 +26,14 @@ const WheatherScroll = ({ weatherData }) => {
 
 const styles = StyleSheet.create({
   scroll: {
-    padding: wp("3%"),
+    padding: wp("1%"),
+    paddingLeft: wp('3%'),
+  },
+  hoy: {
+    paddingLeft: wp("3%"),
+   marginBottom: wp("1.5%"),
+    fontWeight: "bold",
+    fontSize: hp("2.1%"),
   },
 });
 

@@ -8,7 +8,7 @@ import {
 } from "react-native-responsive-screen";
 import WeatherIcon from "./WeatherIcon";
 
-//  CREO QUE NO LO VOY A UTILIZAR
+//  DEFINITIVAMENTE NO LO UTILIZO
 const ItemTemp = ({ title, value, feel, unit}) => {
     return (
       <View style={styles.containerDetails}>

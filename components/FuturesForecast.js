@@ -11,7 +11,7 @@ import WeatherIcon from "./WeatherIcon";
 const FuturesForecast = ({ data }) => {
   //console.log('data en futures', data)
   return (
-    <View style={{ flexDirection: "row", marginRight: wp("10%") }}>
+    <View>
       {data && data.length > 0 ? (
         data.map(
           (data, idx) =>
@@ -36,14 +36,14 @@ const FutureForecastItem = ({ forecastItem }) => {
           .format("dddd")}
       </Text>
       <WeatherIcon icon={forecastItem.weather[0].icon} />
-      <Text style={styles.Description}>
+      {/* <Text style={styles.Description}>
         {forecastItem.weather[0].description}
-      </Text>
+      </Text> */}
       <View style={styles.viewTemp}>
-        <Text style={{ color: "#2C394B", fontWeight: 'bold', fontSize: hp('2%') }}>
+        <Text style={{ color: "#2C394B", fontWeight: 'bold', fontSize: hp('2.2%') }}>
           {Math.ceil(forecastItem.temp.max)}° |
         </Text>
-        <Text style={{ color: "#2C394B" }}> {Math.ceil(forecastItem.temp.min)}°</Text>
+        <Text style={{ color: "#2C394B", fontSize: hp('2%') }}> {Math.ceil(forecastItem.temp.min)}°</Text>
       </View>
     </View>
   );
@@ -53,17 +53,19 @@ export default FuturesForecast;
 
 const styles = StyleSheet.create({
   currentContainer: {
+    flexDirection: 'row',
    backgroundColor: 'white',//"#F7F7F7",
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'space-between',
     alignItems: "center",
     borderRadius: wp("3%"),
     borderColor: "#EDEDED",
-    borderWidth: wp("0.5%"),
-    padding: wp("1%"),
+   borderWidth: wp("0.5%"),
+    padding: wp("3.75%"),
     marginLeft: wp("2%"),
-    width: wp('28%'),
-    height: hp('18%'),
+    width: wp('90%'),
+    height: hp('7.5%'),
+    marginBottom: wp('2.2%'),
    shadowOpacity: 3,
     elevation: 2,
   },
@@ -75,10 +77,10 @@ const styles = StyleSheet.create({
   },
   textDay: { 
     color: "#2C394B", 
-    textTransform: "uppercase",
+    textTransform: "capitalize",
     fontWeight: 'bold',
-    fontSize: hp('1.8%'),
-    marginBottom: wp('1.25%')
+    fontSize: hp('2%'),
+   // marginBottom: wp('1.25%')
   },
   viewTemp: {
     flexDirection: "row",
